@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: shopease-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/shopease
+    username: shopease_user
+    password: shopease123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+server:
+  port: 8081
+
+app:
+  jwt:
+    secret: shopease-dev-secret-key-minimum-256-bits-long-for-hs256-algorithm
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: http://localhost:5173,http://localhost:3000,http://localhost:5073,http://localhost:5074,http://127.0.0.1:5173,http://127.0.0.1:5073,http://127.0.0.1:5074
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    org.springframework.security: WARN
